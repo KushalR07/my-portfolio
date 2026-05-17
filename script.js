@@ -110,12 +110,3 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// NEW
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const name    = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
-  const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-  const body    = encodeURIComponent(message);
-  window.location.href = `mailto:kushal.r2912@gmail.com?subject=${subject}&body=${body}`;
-}
