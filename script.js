@@ -110,15 +110,12 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// ── FORM SUBMIT ──────────────────────────────
+// NEW
 function handleFormSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector(".form-submit");
-  btn.textContent = "Sent! ✓";
-  btn.style.background = "#2d6a4f";
-  setTimeout(() => {
-    btn.textContent = "Send Message →";
-    btn.style.background = "";
-    e.target.reset();
-  }, 3000);
+  const name    = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+  const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+  const body    = encodeURIComponent(message);
+  window.location.href = `mailto:kushal.r2912@gmail.com?subject=${subject}&body=${body}`;
 }
